@@ -31,14 +31,14 @@ export default function Header() {
       <div className="flex items-center relative">
         <button
           onClick={handleShow}
-          className="flex max-md:ml-[100px] md:ml-[550px] text-base md:text-2xl dark:text-white items-center gap-2"
+          className="flex max-md:ml-[100px] md:ml-[400px] text-base md:text-2xl dark:text-white items-center gap-2"
         >
           {selectedFont}
           <img src="./assets/Path 3.png" className="w-3 h-2 md:w-4 md:h-3" />
         </button>
 
         {show && (
-          <div className="absolute w-[150px] md:w-[185px] z-30 top-[40px] right-0 md:left-[450px] flex flex-col rounded-lg mt-[10px] bg-white dark:bg-[#1F1F1F] shadow-lg dark:hover:shadow-[-6px_-8px_68px_3px_rgba(173,0,204,0.68)]">
+          <div className="absolute w-[150px] md:w-[185px] z-30 top-[40px] right-0 md:right-[-50px] flex flex-col rounded-lg mt-[10px] bg-white dark:bg-[#1F1F1F] shadow-lg dark:hover:shadow-[-6px_-8px_68px_3px_rgba(173,0,204,0.68)]">
             <button
               onClick={changeFont("Sans Serif", "sans-serif")}
               className="p-2 text-left hover:bg-gray-100 dark:hover:text-[#A445ED] dark:hover:bg-[#2D2D2D] dark:text-white"
@@ -74,7 +74,7 @@ export default function Header() {
           ></div>
         </div>
         <img
-          className="ml-4"
+          className="ml-4 z-10"
           src={
             dark
               ? "./assets/iconoir_half-moon (1).png"
