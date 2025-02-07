@@ -44,7 +44,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-[100vh] dark:bg-black">
+    <div className="min-h-[100vh] pt-12 dark:bg-black">
       <div>
         <Header />
         <div className="relative w-full max-w-[736px] mx-auto">
@@ -59,7 +59,7 @@ function App() {
                 setIsEmpty(false); // Reset the error state when typing
               }}
               onKeyPress={handleKeyPress}
-              className={`w-full mt-[10px] pl-4 pr-10 py-2 dark:bg-[#1F1F1F] dark:text-[white] border bg-[#F4F4F4] rounded-lg transition-all duration-200
+              className={`  max-md:w-[327px] max-md:mx-auto max-md:flex    w-full mt-[10px] pl-4 pr-10 py-2 dark:bg-[#1F1F1F] dark:text-[white] border bg-[#F4F4F4] rounded-lg transition-all duration-200
                 ${
                   isEmpty ? "border-red-500" : "focus:border-[#A445ED]"
                 } focus:outline-none`}
@@ -68,30 +68,32 @@ function App() {
               src="./assets/search.png"
               alt="search"
               onClick={handleSearch}
-              className="absolute mt-[5px] right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 cursor-pointer"
+              className="max-md:mr-[200px] max-md:mt-[0px]   absolute  mt-[5px] right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 cursor-pointer"
             />
           </div>
           {isEmpty && (
-            <p className="text-red-500 text-sm mt-1">
+            <p className="max-md:ml-[200px]  text-red-500 text-sm mt-1">
               Whoops, can’t be empty...
             </p>
           )}
         </div>
       </div>
+
       {data.length ? (
-        <div className="w-[736px] mt-[20px] justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
+        <div className="max-md:w-[327px] w-[736px] mt-[20px] justify-center mx-auto">
           <div
-            className="w-[75px] h-[75px] absolute ml-[655px] mt-[40px] cursor-pointer rounded-full bg-[#a445ed66]"
+            className="max-md:w-[48px]  max-md:h-[48px] max-md:ml-[280px]  w-[75px] h-[75px] absolute ml-[655px]  hover:bg-[#A445ED] cursor-pointer rounded-full bg-[#a445ed66] flex items-center justify-center"
             onClick={playSound}
           >
             <img
-              className="absolute mt-[27px] ml-[28px] cursor-pointer"
+              className="transition-all max-md:w-[13px] max-md:h-[13px] duration-200 cursor-pointer hover:brightness-0 hover:contrast-200"
               src="./assets/Path 2.png"
               alt="play sound"
             />
           </div>
+
           <div>
-            <h2 className="font-bold text-7xl mt-[40px] dark:text-white">
+            <h2 className="max-md:text-[32px] font-bold text-7xl mt-[40px] dark:text-white">
               {data[0].word}
             </h2>
             <h2 className="text-[#A445ED] mt-[10px] text-2xl">
@@ -106,9 +108,11 @@ function App() {
                 {el.definitions.map((item, defIndex) => (
                   <ul
                     key={defIndex}
-                    className="list-disc pl-10 dark:text-white"
+                    className="max-md:pl-0 list-disc pl-10 dark:text-white"
                   >
-                    <li className="text-[text-lg] mt-[]">{item.definition}</li>
+                    <li className=" max-md:text-[15px] max-md:mt-[13px] text-[text-lg] dark:marker:text-[#8F19E8]">
+                      {item.definition}
+                    </li>
                   </ul>
                 ))}
               </div>
@@ -138,9 +142,11 @@ function App() {
           </div>
         </div>
       ) : (
-        <div className="w-[736px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+        <div className="max-md:w-[327px]   w-[736px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
           <img className="mx-auto" src="./assets/😕.png" alt="error" />
-          <h2 className="mt-[40px] font-bold">{error.title}</h2>
+          <h2 className="mt-[40px] font-bold dark:text-white ">
+            {error.title}
+          </h2>
           <h2 className="mt-[18px] text-[#757575]">
             {error.message} {error.resolution}
           </h2>
